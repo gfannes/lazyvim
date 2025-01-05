@@ -14,7 +14,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.tabstop = 4 -- Number of spaces a tab character represents
   end,
 })
---
--- vim.bo.expandtab = true
--- vim.bo.shiftwidth = 4
--- vim.bo.tabstop = 4
+
+-- Save on FocusLost
+vim.api.nvim_create_autocmd("FocusLost", {
+  group = vim.api.nvim_create_augroup("FocusLostStuff", { clear = true }),
+  callback = function(ev)
+    vim.cmd.stopinsert()
+    vim.cmd.wall({ mods = { silent = true } })
+  end,
+})
