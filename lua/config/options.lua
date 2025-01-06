@@ -4,9 +4,9 @@
 
 vim.g.lazyvim_ruby_lsp = "solargraph"
 
--- Set indentation for Ruby files
+-- Set indentation for Ruby/C++/C files
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "ruby",
+  pattern = { "ruby", "cpp", "c" },
   callback = function()
     vim.bo.expandtab = true -- Use spaces instead of tabs
     vim.bo.shiftwidth = 4 -- Number of spaces for indentation
