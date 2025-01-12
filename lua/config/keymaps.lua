@@ -12,6 +12,10 @@ vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]])
 
 vim.keymap.set("n", "<C-v>", ":bd<CR>", { desc = "Close current buffer" })
 
+-- Synchronized scrolling
+vim.keymap.set("n", "<leader>Bs", ":set scrollbind<CR>", { desc = "Bind synchronized scrolling" })
+vim.keymap.set("n", "<leader>Bc", ":set cursorbind<CR>", { desc = "Bind synchronized cursor" })
+
 vim.keymap.set({ "n" }, "-o", [[O<esc>]])
 
 -- For some reason, below autocmds only run for files opened after Neovim started
