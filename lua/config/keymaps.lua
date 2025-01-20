@@ -24,8 +24,7 @@ vim.keymap.set({ "n" }, "-o", [[o<esc>0D]], { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<leader>xn", vim.diagnostic.goto_next)
 vim.keymap.set({ "n" }, "<leader>xp", vim.diagnostic.goto_prev)
 
--- For some reason, below autocmds only run for files opened after Neovim started
-
+-- Make sure keymaps.lua is loaded before the events are fired for files passed directly to the nvim app
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter", "FileType" }, {
   pattern = "cpp",
   callback = function()
