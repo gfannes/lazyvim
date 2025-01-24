@@ -7,4 +7,9 @@ return {
   { "navarasu/onedark.nvim" },
   { "sainnhe/sonokai" },
   { "shaunsingh/nord.nvim" },
+
+  {
+    "Makaze/AnsiEsc",
+    keys = { { "<localleader>c", "<cmd>AnsiEsc<cr>", desc = "Toggle ANSI color coding" } },
+  },
 }
