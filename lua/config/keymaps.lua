@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter", "FileType
   callback = function()
     print("Loading C++ keybindings")
     vim.keymap.set({ "n" }, "-r", [[O#include <><esc>i]]) -- #include
-    vim.keymap.set({ "n" }, "-b", [[o{<cr>}<esc>k$]]) -- Create block
+    vim.keymap.set({ "n" }, "-b", [[o{<cr>}<esc>k$]], { noremap = true, silent = true }) -- Create block
     vim.keymap.set({ "n" }, "-m", [[oMSS();<esc>hi]]) -- MSS()
     vim.keymap.set({ "n" }, "-n", [[oMSS_BEGIN(auro_ReturnCode_t);<cr>MSS_END();<esc>k$]]) -- MSS_BEGIN()/MSS_END()
     vim.keymap.set({ "n" }, "-s", [[Anamespace  { <esc>jI}<esc>k$hhi]]) -- namespace
@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter", "FileType
   callback = function()
     print("Loading C keybindings")
     vim.keymap.set({ "n" }, "-r", [[O#include <><esc>i]]) -- #include
-    vim.keymap.set({ "n" }, "-b", [[o{<cr>}<esc>O]]) -- Create block
+    vim.keymap.set({ "n" }, "-b", [[o{<cr>}<esc>O]], { noremap = true, silent = true }) -- Create block
     vim.keymap.set({ "n" }, "-m", [[oMSS_RC();<esc>hi]]) -- MSS_RC()
     vim.keymap.set({ "n" }, "-n", [[oMSS_BEGIN_RC(auro_ReturnCode_t);<cr>MSS_END_RC();<esc>k$]]) -- MSS_BEGIN_RC()/MSS_END_RC()
   end,

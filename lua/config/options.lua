@@ -7,6 +7,8 @@ vim.g.lazyvim_ruby_lsp = "solargraph"
 -- Only extend comment if the comment on the previous line is not preceded by a non-comment
 vim.opt.formatoptions:append("/")
 
+vim.opt.relativenumber = false
+
 -- Set indentation for Ruby/C++/C files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "ruby", "cpp", "c" },
