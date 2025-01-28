@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter", "FileType
     vim.keymap.set(
       { "n" },
       "-g",
-      [[ggO#ifndef HEADER__ALREADY_INCLUDED<cr>#define HEADER__ALREADY_INCLUDED<cr><esc>Go<esc>0Do#endif<esc>ggf_f_]]
+      [[ggO#ifndef HEADER__ALREADY_INCLUDED<cr>#define HEADER__ALREADY_INCLUDED<cr><cr><esc>Go<esc>0Do#endif<esc>ggf_f_]]
     )
     vim.keymap.set({ "n" }, "-e", [[oSECTION("")<cr>{<cr>}<esc>kk$hi]]) -- SECTION
     vim.keymap.set({ "n" }, "-u", [[oREQUIRE();<esc>hi]]) -- REQUIRE()
