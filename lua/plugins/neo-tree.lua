@@ -1,7 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
-    sources = { "buffers" },
+    sources = { "filesystem", "buffers" },
     window = {
       mappings = {
         ["b"] = "",
