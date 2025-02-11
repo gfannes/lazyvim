@@ -9,6 +9,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]])
+-- Keep cursor at position after 'yank' in visual mode
+vim.keymap.set("v", "y", "ygv<esc>")
 
 -- Close current buffer
 vim.keymap.set("n", "<C-v>", ":bd<CR>", { desc = "Close current buffer" })
@@ -63,5 +65,15 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter", "FileType
   callback = function()
     print("Loading ruby keybindings")
     vim.keymap.set({ "n" }, "-r", [[Orequire('')<esc>hi]]) -- require('')
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufEnter", "FileType" }, {
+  pattern = "zig",
+  callback = function()
+    print("Loading Zig keybindings")
+    vim.keymap.set({ "n" }, "-r", [[O@import("");<esc>hhi]]) -- #include
+    vim.keymap.set({ "n" }, "-b", [[o{<cr>}<esc>k$]], { noremap = true, silent = true }) -- Create block
+    vim.keymap.set({ "n" }, "-e", [[otest "" {<cr>}<esc>k$hi]]) -- SECTION
   end,
 })
